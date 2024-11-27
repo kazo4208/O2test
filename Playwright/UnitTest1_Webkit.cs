@@ -53,7 +53,7 @@ public partial class Tests
         await page.GetByTestId("city").GetByLabel("").FillAsync("Bratislava-Karlova Ves");
         await page.GetByTestId("zip").GetByLabel("").FillAsync("84105");
         await page.GetByTestId("birthNumber").GetByLabel("").FillAsync("961122/7703");
-        await page.GetByTestId("idCardNumber").GetByLabel("").FillAsync("ML910145");
+        await page.GetByTestId("idCardNumber").GetByLabel("").FillAsync("MQ910145");
         await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).ClickAsync();
         await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).FillAsync("28.12.2025");
         await page.GetByTestId("idCardNumber").GetByLabel("").ClickAsync();

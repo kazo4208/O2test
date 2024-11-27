@@ -18,7 +18,7 @@ public partial class Tests
         var context = await browser.NewContextAsync(new()
         {
             RecordVideoDir = "videos/",
-            RecordVideoSize = new RecordVideoSize() { Width = 640, Height = 480 }
+            RecordVideoSize = new RecordVideoSize { Width = 1280, Height = 720 }
         });
         await page.GotoAsync(url: "https://o2.sk");
         //await page.ClickAsync(selector: "text=Telefóny a zariadenia");
@@ -59,7 +59,7 @@ public partial class Tests
         await page.GetByTestId("city").GetByLabel("").FillAsync("Bratislava-Karlova Ves");
         await page.GetByTestId("zip").GetByLabel("").FillAsync("84105");
         await page.GetByTestId("birthNumber").GetByLabel("").FillAsync("961122/7703");
-        await page.GetByTestId("idCardNumber").GetByLabel("").FillAsync("ML910145");
+        await page.GetByTestId("idCardNumber").GetByLabel("").FillAsync("MI910145");
         await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).ClickAsync();
         await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).FillAsync("28.12.2025");
         await page.GetByTestId("idCardNumber").GetByLabel("").ClickAsync();
@@ -70,7 +70,7 @@ public partial class Tests
         await page.ScreenshotAsync(new PageScreenshotOptions { Path = "screenshot6.jpg" });
         await page.GetByTestId("checkout-submit")
             .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
-        await context.CloseAsync();
         await browser.CloseAsync();
+        await context.CloseAsync();
      }
 }
