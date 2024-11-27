@@ -33,6 +33,35 @@ public partial class Tests
         await page.GetByRole(AriaRole.Option, new PageGetByRoleOptions { Name = "3" }).ClickAsync();
         await page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Pokračovať ďalej" }).ClickAsync();
         await page.ClickAsync(selector: "text=Pokračovať ako nový zákazník");
+        await page.GetByTestId("extenderCheckbox0").CheckAsync();
+        await page.GetByTestId("go-next-step").GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
+        await page.GetByTestId("radio-item-SELF_SERVICE").CheckAsync();
+        await page.GetByTestId("go-next-step").GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
+        //await page.GetByTestId("cross-sell-addon__predplatne-hbomax").CheckAsync();
+        //await page.GetByTestId("cross-sell-addon__predplatne-netflix-basic").CheckAsync();
+        //await page.GetByTestId("cross-sell-addon__predplatne-o2tv").CheckAsync();
+        await page.GetByTestId("crossSell.submit").ClickAsync();
+        await page.GetByTestId("cart-summary__proceed-to-checkout")
+            .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Prejsť k osobným údajom" }).ClickAsync();
+        await page.GetByTestId("checkout-submit")
+            .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
+        await page.GetByTestId("firstName").GetByLabel("").FillAsync("Martin");
+        await page.GetByTestId("lastName").GetByLabel("").FillAsync("Klingáč");
+        await page.GetByTestId("email").GetByLabel("").FillAsync("mklin@gmail.com");
+        await page.GetByTestId("contactPhone").GetByLabel("").FillAsync("0901234567");
+        await page.GetByTestId("street").GetByLabel("").FillAsync("Hany Meličkovej");
+        await page.GetByTestId("streetNumber").GetByLabel("").FillAsync("10");
+        await page.GetByTestId("city").GetByLabel("").FillAsync("Bratislava-Karlova Ves");
+        await page.GetByTestId("zip").GetByLabel("").FillAsync("84105");
+        await page.GetByTestId("birthNumber").GetByLabel("").FillAsync("961122/7703");
+        await page.GetByTestId("idCardNumber").GetByLabel("").FillAsync("MI910145");
+        await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).ClickAsync();
+        await page.GetByTestId("idCardValidity").GetByRole(AriaRole.Textbox).FillAsync("28.12.2025");
+        await page.GetByTestId("idCardNumber").GetByLabel("").ClickAsync();
+        await page.GetByTestId("checkout-submit")
+            .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
+        await page.GetByTestId("checkout-submit")
+            .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
         await browser.CloseAsync();
      }
 }
