@@ -22,10 +22,10 @@ public partial class Tests
         });
         await page.GotoAsync(url: "https://o2.sk");
         //await page.ClickAsync(selector: "text=Telefóny a zariadenia");
-        await page.GetByTestId("mainNavigation.megaMenu.title.7").ClickAsync();
+        await page.GetByTestId("mainNavigation.menuItem.5").ClickAsync();
         Console.WriteLine("Navigated to Telefóny a zariadenia");
         //await page.ClickAsync(selector: "text=Telefóny");
-        await page.GetByTestId("mainNavigation.menuItem.3").ClickAsync();
+        await page.GetByTestId("mainNavigation.megaMenu.title.7").ClickAsync();
         Console.WriteLine("Navigated to Telefony");
         //await page.GotoAsync(url: "http://o2.sk/e-shop/produkt/xiaomi-14t-sedy");
         await page.GetByRole(AriaRole.Link, new PageGetByRoleOptions { Name = "Xiaomi 14T, Šedý Vianočná" })
@@ -70,7 +70,7 @@ public partial class Tests
         await page.ScreenshotAsync(new PageScreenshotOptions { Path = "screenshot6.jpg" });
         await page.GetByTestId("checkout-submit")
             .GetByRole(AriaRole.Button, new LocatorGetByRoleOptions { Name = "Pokračovať" }).ClickAsync();
-        await browser.CloseAsync();
         await context.CloseAsync();
+        await browser.CloseAsync();
      }
 }
